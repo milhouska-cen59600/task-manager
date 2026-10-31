@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#172f2b" />
+    <meta name="description" content="Přehledné místo pro vaše pracovní úkoly. Plánujte, sledujte průběh a dokončujte práci." />
+    <title>Úkolník — pracovní úkoly pod kontrolou</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <script type="module" crossorigin src="./assets/index-D-o74RNC.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CVUfz7eA.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="./" aria-label="Úkolník — úvod">
+          <span class="brand-mark" aria-hidden="true">✓</span> úkolník<span class="brand-dot">.</span>
+        </a>
+        <div class="workspace-label">OSOBNÍ PRACOVNÍ PROSTOR</div>
+        <nav class="navigation" aria-label="Pohledy na úkoly">
+          <button class="nav-item active" data-view="all" aria-pressed="true"><span aria-hidden="true">▦</span> Všechny úkoly <span class="nav-count" id="nav-count">0</span></button>
+          <button class="nav-item" data-view="today" aria-pressed="false"><span aria-hidden="true">◷</span> Na dnešek</button>
+          <button class="nav-item" data-view="overdue" aria-pressed="false"><span aria-hidden="true">!</span> Po termínu</button>
+          <button class="nav-item" data-view="done" aria-pressed="false"><span aria-hidden="true">✓</span> Dokončené</button>
+        </nav>
+        <div class="sidebar-tip">
+          <span class="tip-icon" aria-hidden="true">✧</span>
+          <strong>Malé kroky. Velký pokrok.</strong>
+          <p>Rozdělte práci na úkoly a soustřeďte se na to, co je právě důležité.</p>
+        </div>
+        <div class="storage-note"><span class="status-dot"></span> Data zůstávají ve vašem prohlížeči</div>
+      </aside>
+
+      <main>
+        <header class="topbar"><span>Váš pracovní prostor</span><span class="today-label" id="today-label"></span></header>
+        <div class="content">
+          <section class="page-heading">
+            <div><p class="eyebrow">MÉNĚ CHAOSU, VÍCE HOTOVO</p><h1 id="page-title">Všechny úkoly</h1><p class="subtitle">Jasný přehled. Klidná hlava. Prostor pro důležitou práci.</p></div>
+            <button class="button primary" id="new-task"><span aria-hidden="true">＋</span> Nový úkol</button>
+          </section>
+          <div id="storage-error" class="error-banner" role="alert" hidden></div>
+          <section class="stats" aria-label="Souhrn úkolů">
+            <article class="stat-card"><span class="stat-label">Celkem úkolů <span class="stat-icon neutral" aria-hidden="true">▦</span></span><strong id="stat-total">0</strong><span class="stat-caption">Všechno na jednom místě</span></article>
+            <article class="stat-card"><span class="stat-label">Rozpracované <span class="stat-icon blue" aria-hidden="true">◷</span></span><strong id="stat-progress">0</strong><span class="stat-caption">Právě v pohybu</span></article>
+            <article class="stat-card"><span class="stat-label">Dokončené <span class="stat-icon green" aria-hidden="true">✓</span></span><strong id="stat-done">0</strong><span class="stat-caption">Každý krok se počítá</span></article>
+            <article class="stat-card"><span class="stat-label">Po termínu <span class="stat-icon orange" aria-hidden="true">!</span></span><strong id="stat-overdue">0</strong><span class="stat-caption">Zaslouží si vaši pozornost</span></article>
+          </section>
+
+          <section class="task-section" aria-labelledby="list-heading">
+            <div class="section-heading"><h2 id="list-heading">Vaše úkoly <span id="result-count">0</span></h2><div class="backup-actions"><button class="text-button" id="import-tasks">Importovat</button><button class="text-button" id="export-tasks">Exportovat ↓</button></div></div>
+            <div class="toolbar">
+              <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Hledat podle názvu nebo popisu…" aria-label="Hledat úkoly" /></label>
+              <label class="filter"><span class="sr-only">Stav</span><select id="status-filter"><option value="all">Všechny stavy</option><option value="todo">K vyřízení</option><option value="in-progress">Rozpracované</option><option value="done">Dokončené</option></select></label>
+              <label class="filter"><span class="sr-only">Priorita</span><select id="priority-filter"><option value="all">Všechny priority</option><option value="high">Vysoká priorita</option><option value="medium">Střední priorita</option><option value="low">Nízká priorita</option></select></label>
+              <label class="filter"><span class="sr-only">Řazení</span><select id="sort"><option value="newest">Nejnovější</option><option value="due">Podle termínu</option><option value="priority">Podle priority</option></select></label>
+            </div>
+            <div id="task-list" class="task-grid"></div>
+            <div id="empty-state" class="empty-state">
+              <span class="empty-icon" aria-hidden="true">✓</span>
+              <h3 id="empty-title">Dobrý plán začíná prvním úkolem</h3>
+              <p id="empty-description">Přidejte, co potřebujete udělat. Termíny a priority vám pomohou udržet směr.</p>
+              <button class="button primary" id="empty-add">＋ Vytvořit první úkol</button>
+              <button class="text-button" id="reset-filters" hidden>Zrušit filtry</button>
+            </div>
+          </section>
+          <footer class="page-footer"><span>Vlastní tempo. Jasný směr.</span><span>Úkolník · první verze</span></footer>
+        </div>
+      </main>
+    </div>
+
+    <dialog id="task-dialog" aria-labelledby="dialog-title">
+      <form id="task-form">
+        <div class="dialog-heading"><div><p class="eyebrow">PROSTOR PRO DALŠÍ KROK</p><h2 id="dialog-title">Nový úkol</h2></div><button type="button" class="icon-button" id="close-dialog" aria-label="Zavřít formulář">×</button></div>
+        <label class="field">Název úkolu <span class="required-note">povinné</span><input name="title" required maxlength="120" placeholder="Co potřebujete udělat?" /></label>
+        <label class="field">Popis<textarea name="description" maxlength="2000" rows="4" placeholder="Podrobnosti, poznámky nebo další kroky…"></textarea></label>
+        <div class="form-row"><label class="field">Stav<select name="status"><option value="todo">K vyřízení</option><option value="in-progress">Rozpracované</option><option value="done">Dokončené</option></select></label><label class="field">Priorita<select name="priority"><option value="low">Nízká</option><option value="medium" selected>Střední</option><option value="high">Vysoká</option></select></label></div>
+        <label class="field">Termín dokončení <span class="optional-note">nepovinné</span><input name="dueDate" type="date" min="0001-01-01" max="9999-12-31" /></label>
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+        <div class="dialog-actions"><button type="button" class="button secondary" id="cancel-task">Zrušit</button><button type="submit" class="button primary">Uložit úkol</button></div>
+      </form>
+    </dialog>
+    <dialog id="confirm-dialog" aria-labelledby="confirm-title">
+      <h2 id="confirm-title">Smazat úkol?</h2>
+      <p id="confirm-description"></p>
+      <div class="dialog-actions"><button class="button secondary" id="confirm-cancel">Zrušit</button><button class="button danger" id="confirm-accept">Smazat úkol</button></div>
+    </dialog>
+    <input type="file" id="import-file" accept=".json,application/json" hidden />
+    <div id="notification" class="notification" role="status" hidden></div>
+  </body>
+</html>
