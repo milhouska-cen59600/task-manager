@@ -7,6 +7,7 @@ První verze webové aplikace pro evidenci pracovních úkolů. Česká, responz
 - Vytvořit, upravit, dokončit, znovu otevřít a smazat úkol.
 - Evidovat název, popis, stav, prioritu a nepovinný termín.
 - Zobrazit souhrn a pohledy na všechny, dnešní, opožděné a dokončené úkoly.
+- Zvýraznit nedokončené úkoly po termínu červeným orámováním, podbarvením a označením termínu.
 - Hledat v názvu a popisu, filtrovat stav a prioritu, řadit podle vytvoření, termínu a priority.
 - Ukládat změny do `localStorage`, synchronizovat přehled mezi kartami stejného prohlížeče a exportovat/importovat JSON zálohy.
 

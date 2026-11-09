@@ -69,15 +69,16 @@ function askConfirmation(title, description, label, action) {
 }
 
 function taskCard(task, today) {
-  const card = element('article', `task-card${task.status === 'done' ? ' task-done' : ''}`);
+  const overdue = isOverdue(task, today);
+  const card = element('article', `task-card${task.status === 'done' ? ' task-done' : ''}${overdue ? ' task-overdue' : ''}`);
   const badges = element('div', 'card-badges');
   badges.append(element('span', `badge priority-${task.priority}`, `${PRIORITIES[task.priority]} priorita`), element('span', `badge status-${task.status}`, STATUSES[task.status]));
   const heading = element('h3', '', task.title);
   const description = element('p', 'task-description', task.description || 'Bez popisu');
-  const date = element('span', `task-date${isOverdue(task, today) ? ' overdue' : ''}`);
+  const date = element('span', `task-date${overdue ? ' overdue' : ''}`);
   if (task.dueDate) {
     const formatted = new Intl.DateTimeFormat('cs', { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(`${task.dueDate}T12:00:00`));
-    date.textContent = `${isOverdue(task, today) ? 'Po termínu · ' : 'Termín · '}${formatted}`;
+    date.textContent = `${overdue ? 'Po termínu · ' : 'Termín · '}${formatted}`;
   } else date.textContent = 'Bez termínu';
   const footer = element('div', 'card-footer');
   const actions = element('div', 'card-actions');
