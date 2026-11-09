@@ -74,6 +74,8 @@ h2 { margin: 0; font-size: 17px; font-weight: 650; letter-spacing: -.4px; }
 .filter select { width: 100%; padding: 12px 25px 12px 12px; border: 1px solid #dfe5e1; border-radius: 8px; background: #fff; font-size: 11px; color: #66736b; min-height: 41px; }
 .task-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .task-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; min-width: 0; }
+.task-card.task-overdue { border-color: #df8c84; background: #fff8f7; }
+.task-overdue h3 { color: #8f302b; }
 .card-badges { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 7px; margin-bottom: 19px; }
 .badge { padding: 5px 8px; border-radius: 5px; font-size: 9px; font-weight: 600; }
 .priority-high { color: #ab584a; background: #fceee8; }
@@ -87,7 +89,7 @@ h2 { margin: 0; font-size: 17px; font-weight: 650; letter-spacing: -.4px; }
 .task-done h3 { text-decoration: line-through; color: #7a877b; }
 .card-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; border-top: 1px solid #eff1ee; padding-top: 14px; margin-top: auto; }
 .task-date { font-size: 10px; color: #7d897f; }
-.task-date.overdue { color: #b0604f; }
+.task-date.overdue { color: #a23c35; font-weight: 700; }
 .card-actions { display: flex; align-items: center; gap: 10px; }
 .icon-button { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 1px solid #e5eae5; border-radius: 6px; background: #fff; color: #748272; font-size: 19px; flex-shrink: 0; }
 .icon-button:hover { background: #f1f5ed; }
